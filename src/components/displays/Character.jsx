@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 const Character = ({ image, name }) => (
   <div>
     <img src={image} alt={name} />
-    <p></p>
+    <h4>{name}</h4>
   </div>
 );
 
