@@ -1,6 +1,6 @@
 /* eslint-disable max-len */
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import HeyArnold from './HeyArnold';
 import { MemoryRouter } from 'react-router-dom';
 import { rest } from 'msw';
@@ -19,11 +19,17 @@ describe('HeyArnold Container', () => {
   beforeAll(() => server.listen());
   afterAll(() => server.close());
 
-  it('displays a list of characters on the page', async () => {
-    render(
+  it('displays a list of hey arnold characters', async () => {
+    const { container } = render(
       <MemoryRouter>
         <HeyArnold />
       </MemoryRouter>
     );
+
+    screen.getByText('Loading...');
+
+    const ul = await screen.findByRole('list', { name: 'characters' });
+    expect(ul).not.toBeEmptyDOMElement();
+    expect(container).toMatchSnapshot();
   });
 });
