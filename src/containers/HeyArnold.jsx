@@ -12,7 +12,7 @@ const HeyArnold = () => {
       .finally(() => setLoading(false));
   }, []);
 
-  if(loading) return <h4>Loading...</h4>;
+  if (loading) return <h4>Loading...</h4>;
 
   return <CharacterList characters={characters} />;
 };

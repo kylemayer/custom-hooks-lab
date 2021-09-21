@@ -10,3 +10,11 @@ export const fetchCharacters = async () => {
     image: character.image,
   }));
 };
+
+export const fetchCharaById = async (id) => {
+  // eslint-disable-next-line max-len
+  const res = await fetch(`https://hey-arnold-api.herokuapp.com/api/v1/characters/${id}`);
+  const character = await res.json();
+
+  return character;
+};
