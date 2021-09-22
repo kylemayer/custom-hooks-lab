@@ -18,7 +18,7 @@ export default function App() {
           render={routerProps => <HeyArnold {...routerProps}/>}
         />
         <Route
-          path="/:character"
+          path="/character/:id"
           exact
           render={routerProps => <Detail {...routerProps}/>}
         />
