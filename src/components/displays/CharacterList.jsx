@@ -7,11 +7,11 @@ import styles from './CharacterList.css';
 const CharacterList = ({ characters }) => (
   <ul aria-label="characters">
     {characters.map((character) => (
-      <Link key={character.id} to={`character/${character.id}`}>
-        <li className={styles.list} key={character.id}>
+      <li className={styles.list} key={character.id}>
+        <Link to={`/character/${character.id}`}>
           <Character {...character} />
-        </li>
-      </Link>
+        </Link>
+      </li>
     ))}
   </ul>
 );
