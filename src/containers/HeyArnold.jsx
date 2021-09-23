@@ -1,16 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CharacterList from '../components/displays/CharacterList';
-import { fetchCharacters } from '../services/heyArnoldApi';
+import { useCharacters } from '../hooks/useCharacters';
 
 const HeyArnold = () => {
-  const [loading, setLoading] = useState(true);
-  const [characters, setCharacters] = useState([]);
-
-  useEffect(() => {
-    fetchCharacters()
-      .then((characters) => setCharacters(characters))
-      .finally(() => setLoading(false));
-  }, []);
+  const { loading, characters } = useCharacters();
 
   if (loading) return <h4>Loading...</h4>;
 

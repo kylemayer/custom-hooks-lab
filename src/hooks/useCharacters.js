@@ -8,8 +8,8 @@ export const useCharacters = () => {
   useEffect(() => {
     setLoading(true);
     fetchCharacters()
-      .then((res) => {
-        setCharacters(res.characters);
+      .then((characters) => {
+        setCharacters(characters);
       })
       .finally(() => setLoading(false));
   }, []);
