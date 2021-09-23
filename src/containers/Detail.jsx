@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import CharacterDetail from '../components/displays/CharacterDetail';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { fetchCharaById } from '../services/heyArnoldApi';
 
 const Detail = () => {
+  const { id } = useParams();
   const [loading, setLoading] = useState(true);
   const [character, setCharacter] = useState({});
 
   useEffect(() => {
-    fetchCharaById()
+    fetchCharaById(id)
       .then((character) => setCharacter(character))
       .finally(() => setLoading(false));
   }, []);
@@ -20,7 +21,7 @@ const Detail = () => {
       <Link to="/">
         <h3>Go Back</h3>
       </Link>
-      <CharacterDetail character={character} />
+      <CharacterDetail name={character.name} image={character.image} />
     </>
   );
 };
