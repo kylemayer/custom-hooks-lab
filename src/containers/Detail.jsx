@@ -1,18 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import CharacterDetail from '../components/displays/CharacterDetail';
-import { Link, useParams } from 'react-router-dom';
-import { fetchCharaById } from '../services/heyArnoldApi';
+import { Link } from 'react-router-dom';
+import { useCharacterById } from '../hooks/useCharacterById';
 
 const Detail = () => {
-  const { id } = useParams();
-  const [loading, setLoading] = useState(true);
-  const [character, setCharacter] = useState({});
-
-  useEffect(() => {
-    fetchCharaById(id)
-      .then((character) => setCharacter(character))
-      .finally(() => setLoading(false));
-  }, []);
+  const { loading, character } = useCharacterById();
 
   if (loading) return <h4>Loading...</h4>;
 

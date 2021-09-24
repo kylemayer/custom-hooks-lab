@@ -2,19 +2,19 @@ import { useEffect, useState } from 'react';
 import { fetchCharaById } from '../services/heyArnoldApi';
 import { useParams } from 'react-router-dom';
 
-export const useCharacters = () => {
+export const useCharacterById = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
-  const [characters, setCharacters] = useState([]);
+  const [character, setCharacter] = useState([]);
 
   useEffect(() => {
     setLoading(true);
     fetchCharaById(id)
-      .then((characters) => {
-        setCharacters(characters);
+      .then((character) => {
+        setCharacter(character);
       })
       .finally(() => setLoading(false));
   }, []);
 
-  return { loading, characters };
+  return { loading, character };
 };

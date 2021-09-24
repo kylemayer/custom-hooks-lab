@@ -1,9 +1,12 @@
 import React from 'react';
+import { render, cleanup } from '@testing-library/react';
 import CharacterList from './CharacterList';
-import { render } from '@testing-library/react';
 
 describe('Character list component', () => {
+  afterEach(() => cleanup());
   it('displays a list of hey arnold characters', async () => {
-    render(<CharacterList />);
+    const { asFragment } = render(
+      <CharacterList characters={[]} />);
+    expect(asFragment()).toMatchSnapshot();
   });
 });

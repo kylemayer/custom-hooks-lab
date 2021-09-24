@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HeyArnold detail container displays Nancy character 1`] = `
+<div>
+  <a
+    href="/"
+  >
+    <h3>
+      Go Back
+    </h3>
+  </a>
+  <div
+    role="character-detail"
+  >
+    <figure>
+      <img
+        alt="Nancy"
+        src="https://vignette.wikia.nocookie.net/heyarnold/images/6/62/Nancy.jpg/revision/latest/scale-to-width-down/310?cb=20110423055923"
+      />
+      <figcaption>
+        Nancy
+      </figcaption>
+    </figure>
+  </div>
+</div>
+`;
